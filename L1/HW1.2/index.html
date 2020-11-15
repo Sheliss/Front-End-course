@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = parseInt(prompt('Первая переменная'));
+        var b = parseInt(prompt('Вторая переменная'));
+        var c = parseInt(prompt('Третья переменная'));
+        console.log(a, b, c);
+        d = a + b + c;
+        
+        document.write('Сумма введенных переменных: ', d, '<br />');
+
+        var at = a % 2 == 0;
+        var bt = b % 2 == 0;
+        var ct = c % 2 == 0;
+
+        document.write('Первая переменная четная? - ', at, '<br />');
+        document.write('Вторая переменная четная? - ', bt, '<br />');
+        document.write('Третья переменная четная? - ', ct, '<br />');
+    </script>
+</body>
+</html>
