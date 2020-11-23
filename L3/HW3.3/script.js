@@ -11,7 +11,15 @@ for(i = 0; i < a; i++) {
 document.write('Оригинальный массив: ');
 document.write(arr, '<br />');
 
-arr = arr.map(arr.pop,[...arr]);
+
+for(i = 0, j = arr.length - 1; i < j; i++, j--) {
+
+    temp = arr[j];
+    arr[j] = arr[i];
+    arr[i] = temp;
+
+}
+
 
 document.write('Перевернутый массив: ');
 document.write(arr);
