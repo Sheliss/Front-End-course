@@ -1,88 +1,55 @@
 function doMath(x, y, znak) {
-    for (var i = 0; i < 1; i++) {
 
-        x = prompt('input X');
+    x = parseInt(x);
+    y = parseInt(y);
 
-        if (x === null) {
-            return;
-        } else {
-            x = parseInt(x);
-        }
-
-        if (Number.isInteger(x)) {
-            x = x;
-        } else {
-            alert("enter number");
-            i--;
-        }
+    if (znak != '+' && znak != '-' && znak != '*' && znak != '/' && znak != '%' && znak != '^') {
+        errorSign = true;
+        return errorSign;
     }
 
-    for (var i = 0; i < 1; i++) {
-
-        znak = prompt('input znak');
-
-
-        if (znak === null) {
-            return;
-        }
-
-        if (znak === '+' || znak === '-' || znak === '*' || znak === '/' || znak === '%' || znak === '^') {
-            znak = znak;
-
-        } else {
-            alert("enter znak +,-,*,/, %, ^");
-            i--;
-        }
-    }
-
-    for (var i = 0; i < 1; i++) {
-
-        y = prompt('input Y');
-
-        if (y === null) {
-            return;
-        } else {
-            y = parseInt(y);
-        }
-
-        if (Number.isInteger(y)) {
-            y = y;
-        } else {
-            alert("enter number");
-            i--;
-        }
-    }
 
     if (znak === '+') {
-        var result = x + y;
-        alert(result);
+        result = x + y;
     }
 
     if (znak === '-') {
-        var result = x - y;
-        alert(result);
+        result = x - y;
     }
 
     if (znak === '*') {
-        var result = x * y;
-        alert(result);
+        result = x * y;
     }
 
     if (znak === '/') {
-        var result = x / y;
-        alert(result);
+        result = x / y;
     }
 
     if (znak === '%') {
-        var result = x % y;
-        alert(result);
+        result = x % y;
     }
 
     if (znak === '^') {
-        var result = x ** y;
-        alert(result);
+        result = x ** y;
     }
+
+    return result;
 
 }
 
-doMath();
+
+errorSign = false;
+result = null;
+x = prompt('Введите первое число');
+znak = prompt('Введите знак');
+y = prompt('Введите второе число');
+
+doMath(x, y, znak);
+
+if (errorSign == true) {
+    document.write('Знак может быть только: +,-,*,/, %, ^');
+}
+
+if (errorSign == false) {
+    document.write(x, ' ', znak, ' ', y, ' = ', result);
+}
