@@ -5,7 +5,7 @@ function filter(arr, ruleArr) {
 
         for (let j = 0; j < ruleArr.length; j++) {
 
-            magic = new RegExp(ruleArr[j], "g");
+            let magic = new RegExp(ruleArr[j], "g");
             arr[i] = arr[i].replace(magic, '');
 
         }
