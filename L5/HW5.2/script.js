@@ -1,12 +1,17 @@
 
 function filter(arr, ruleArr) {
 
-    for(let i = 0; i < ruleArr.length; i++) {
 
+    for(let i = 0; i < arr.length; i++) {
 
-        arr = arr.replace(ruleArr[i], '');
+    for(let j = 0; j < ruleArr.length; j++) {
+
+        magic = new RegExp(ruleArr[j], "g");
+        arr[i] = arr[i].replace(magic, '');
     
     }
+
+}
 
     return arr;
 
@@ -14,19 +19,16 @@ function filter(arr, ruleArr) {
 
 
 
-str1 = 'grand1';
-str2 = 'ze_ro!';
-str3 = 'no/thing';
+str1 = 'gggrand1';
+str2 = 'ze____ro!';
+str3 = 'no////thing';
 restrictedList =  ['!', 'g', '_', '/']; 
 
-console.log(str1);
-console.log(str2);
-console.log(str3);
 
-str1 = filter(str1, restrictedList);
-str2 = filter(str2, restrictedList);
-str3 = filter(str3, restrictedList);
+vList = [str1, str2, str3];
 
-console.log(str1);
-console.log(str2);
-console.log(str3);
+console.log(vList[0], vList[1], vList[2]);
+
+vList = filter(vList, restrictedList);
+
+console.log(vList[0], vList[1], vList[2]);
