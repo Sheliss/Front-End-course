@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .cube {
+            position: fixed;
+            box-sizing: border-box;
+            width: 50px;
+            height: 50px;
+            border: 2px solid black;
+            left: 100px;
+            top: 100px;
+            transition: .1s;
+            display: flex;
+            align-items: center;
+        }
+
+        .text {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="cube">
+        <div class="text">БЭМС</div>
+    </div>
+</body>
+</html>
