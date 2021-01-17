@@ -1,7 +1,7 @@
 window.addEventListener('load', function(){
 
     const block = document.querySelector('.cube');
-    const step = 10;
+    const step = 60;
     const text = document.querySelector('.text');
     let throttle = false;
     const throttleTime = 100;

@@ -3,11 +3,12 @@ window.addEventListener('load', function () {
     let greenItem = document.querySelector('.green');
     let redItem = document.querySelector('.red');
     document.getElementById('range').addEventListener('mousemove', event => {
-        let barH = document.getElementById('range').value;
+        let barH = event.target.value;
+        console.log(barH);
         barItem.style.height = barH + 'px';
     });
     document.getElementById('number').addEventListener('change', event => {
-        let greenH = document.getElementById('number').value;
+        let greenH = event.target.value;
         let taxP = tax(greenH);
         let redH = greenH / 100 * taxP;
         redItem.style.height = redH + '%';
