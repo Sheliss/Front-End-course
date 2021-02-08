@@ -39,7 +39,7 @@ const cubeMenu = [
 ];
 
 const contextMenuAdd = [
-    new MenuItem('Add Character', ACTIONS[KEY_ADD], 'add-character'),
+    new MenuItem('Add/Remove Character', ACTIONS[KEY_ADD], 'add-character'),
     new MenuItem('Reset', ACTIONS[KEY_RESET], 'reset')
 ];
 
@@ -47,7 +47,6 @@ const contextMenuAdd = [
 
 window.addEventListener('load', () => {
     const target = document.body;
-    const block = target.querySelector('.cube');
     const step = 10;
     const h = 50;
     let throttle = false;
@@ -64,12 +63,22 @@ window.addEventListener('load', () => {
         },
         [KEY_JUMP]: () => {
             cubeMove.jump();
+        },
+        [KEY_RESET]: () => {
+            cubeMove.reset();
+        },
+        [KEY_ADD]: () => {
+            cubeMove.show();
         }
+
     };
 
 
 
     target.innerHTML += `
+    <div class="context-menu default-menu">
+        ${contextMenuAdd.map(item => item.getItemTemplate()).join('')}
+    </div>    
     <div class="context-menu cube-menu">
         ${cubeMenu.map(item => item.getItemTemplate()).join('')}
     </div>      
@@ -84,6 +93,8 @@ window.addEventListener('load', () => {
             }
         })
     });
+
+    const block = document.querySelector('.cube');
 
     let cubeMove = {
         sit: () => {
@@ -131,8 +142,19 @@ window.addEventListener('load', () => {
             block.style.top = block.offsetTop - h + 'px';
             setTimeout(() => block.style.top = block.offsetTop + h + 'px', 100);
             return;
+        },
+        reset: () => {
+            block.style.top = '100px';
+            block.style.left = '100px';
+            block.style.background = 'rgb(0, 0, 0)';
+        },
+        show: () => {
+            block.classList.toggle('show');
         }
+        
     }
+
+
 
     window.addEventListener('keydown', event => {
 
@@ -179,14 +201,25 @@ window.addEventListener('load', () => {
         hideContextMenu();
     });
 
-    /*document.addEventListener('contextmenu', event => {
+    document.addEventListener('contextmenu', event => {
         event.preventDefault();
         const contextMenu = document.querySelector('.context-menu.default-menu');
+
+        
+
         contextMenu.style.left = event.clientX + 'px';
         contextMenu.style.top = event.clientY + 'px';
         hideContextMenu();
         contextMenu.classList.add('show');
-    });*/
+
+        if(contextMenu.offsetWidth + event.clientX > window.innerWidth) {
+            contextMenu.style.left = (event.clientX - contextMenu.offsetWidth) + 'px';
+        };
+
+        if(contextMenu.offsetHeight + event.clientY > window.innerHeight) {
+            contextMenu.style.top = (event.clientY - contextMenu.offsetHeight) + 'px';
+        };
+    });
 
     document.querySelector('.cube').addEventListener('contextmenu', event => {
         event.stopPropagation();
