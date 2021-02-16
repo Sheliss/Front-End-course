@@ -45,6 +45,51 @@
         .grey {
             background-color: grey;
         }
+
+        .cart__item {
+            border: 1px solid black;
+            width: 350px;
+            margin-bottom: 5px;
+            padding: 3px;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cart__item.item .item__name {
+            width: 100px;
+        }
+        
+        .cart__item.item .item__totalPrice {
+            width: 70px;
+        }
+
+        .cart__item.item .item__count {
+            width: 20px;
+        }
+
+        .cart__item.item button {
+            width: 25px;
+            height: 25px;
+        }
+
+        .cartTitle {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .cartTotal {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .totalPrice {
+            width: 250px;
+            display: flex;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <body style="font-family: monospace;">
@@ -52,7 +97,6 @@
 
     <div class="products"></div>
     <hr>
-    <div class="cart_amoun">Total: <span id="total">0</span></div>
     <div class="product_quantity"></div>
 </body>
 </html>
