@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .blocks {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .blocks__item {
+            width: 200px;
+            height: 50px;
+            padding: 5px;
+            border: 1px solid black;
+            margin-right: 2px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            background: transparent;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <script src="script.js"></script>
+    <div class="blocks">
+        <div class="blocks__item" id="id-1">
+            <div class="currentCount">Counter: 0</div>
+            <button class="counterBtn" data-block-id="1">Click</button>
+        </div>
+        <div class="blocks__item" id="id-2">
+            <div class="currentCount">Counter: 0</div>
+            <button class="counterBtn" data-block-id="2">Click</button>
+        </div>
+        </div>
+    </div>
+    <button class="setCount">Set count</button>
+    <button class="clearAll">Clear counters</button>
+</body>
+</html>
